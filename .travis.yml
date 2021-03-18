@@ -1,0 +1,19 @@
+dist: xenial
+language: python
+python: 3.7
+cache: pypi
+
+install:
+  - pip install flake8 codecov pytest pytest-cov
+  - pip install matplotlib 
+  - pip install scipy
+
+script:
+  - flake8 --ignore=F405,F401,F811,F403,E501
+  - pytest
+after_success:
+  - codecov
+  
+branches:
+  only:
+  - master
